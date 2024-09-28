@@ -4,7 +4,7 @@
 
 IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
-namespace DX11Base 
+namespace ChaosEngine 
 {
 	FILE*				Console::pOutStream{ nullptr };
 	bool				Console::bInit{ false };
@@ -117,7 +117,7 @@ namespace DX11Base
 		freopen_s(&pOutStream, "CONOUT$", "w", stdout);
 
 		char titleBuff[256];
-		sprintf_s(titleBuff, "[DX11Base] %s", ConsoleName);
+		sprintf_s(titleBuff, "[ChaosEngine] %s", ConsoleName);
 		SetConsoleTitleA(titleBuff);
 
 		Console::bInit = true;
@@ -386,6 +386,25 @@ namespace DX11Base
 			pImGui = GImGui;
 			pViewport = pImGui->Viewports[0];
 			return true;
+
+			if (ChaosEngine::callback_manager::use_mut_on_imgui_draw)
+			{
+				const std::lock_guard lg(ChaosEngine::callback_manager::mut_on_imgui_draw);
+				ChaosEngine::callback_manager::get_callbacks().on_imgui_draw.dispatch();
+			}
+			else
+			{
+				ChaosEngine::callback_manager::get_callbacks().on_imgui_draw.dispatch();
+			}
+
+			// unwind begin calls
+			while (ChaosEngine::api_imgui::imgui_active_begin_count)
+			{
+				ImGui::End();
+				--ChaosEngine::api_imgui::imgui_active_begin_count;
+			}
+
+			helpers::imgui_popup_modal::on_imgui_draw();
 		}
 		bInitImGui = false;
 		return false;

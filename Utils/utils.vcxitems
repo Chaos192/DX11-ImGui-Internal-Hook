@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{a2d09ac9-23c1-4b03-af08-2ef6798147e3}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)mem.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)console.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)hooking.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)loadlibrary.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)misc_utils.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)winapi_helper.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)winternal.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)hash.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mem.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)console.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)hooking.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)loadlibrary.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)macro.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)misc_utils.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)winapi_helper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)winternal.h" />
+  </ItemGroup>
+</Project>

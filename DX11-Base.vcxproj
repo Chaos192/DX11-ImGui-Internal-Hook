@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -84,6 +84,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)\bin</OutDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -149,10 +151,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;DX11BASE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
       <AdditionalIncludeDirectories>$(SolutionDir)\include;$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -164,9 +166,50 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="api\api_ChaosEngine.h" />
+    <ClInclude Include="api\api_controls.h" />
+    <ClInclude Include="api\api_game.h" />
+    <ClInclude Include="api\api_imgui.h" />
+    <ClInclude Include="api\api_mem.h" />
+    <ClInclude Include="api\api_win.h" />
+    <ClInclude Include="api\i_api.h" />
+    <ClInclude Include="api\script_apis.h" />
+    <ClInclude Include="autoexecdef.h" />
+    <ClInclude Include="callback_manager.h" />
+    <ClInclude Include="font.h" />
+    <ClInclude Include="git_info.h" />
+    <ClInclude Include="helpers\imgui_prompts.h" />
     <ClInclude Include="include\Engine.h" />
     <ClInclude Include="include\helper.h" />
     <ClInclude Include="include\Menu.h" />
+    <ClInclude Include="libs\lua\lapi.h" />
+    <ClInclude Include="libs\lua\lauxlib.h" />
+    <ClInclude Include="libs\lua\lcode.h" />
+    <ClInclude Include="libs\lua\lctype.h" />
+    <ClInclude Include="libs\lua\ldebug.h" />
+    <ClInclude Include="libs\lua\ldo.h" />
+    <ClInclude Include="libs\lua\lfunc.h" />
+    <ClInclude Include="libs\lua\lgc.h" />
+    <ClInclude Include="libs\lua\ljumptab.h" />
+    <ClInclude Include="libs\lua\llex.h" />
+    <ClInclude Include="libs\lua\llimits.h" />
+    <ClInclude Include="libs\lua\lmem.h" />
+    <ClInclude Include="libs\lua\lobject.h" />
+    <ClInclude Include="libs\lua\lopcodes.h" />
+    <ClInclude Include="libs\lua\lopnames.h" />
+    <ClInclude Include="libs\lua\lparser.h" />
+    <ClInclude Include="libs\lua\lprefix.h" />
+    <ClInclude Include="libs\lua\lstate.h" />
+    <ClInclude Include="libs\lua\lstring.h" />
+    <ClInclude Include="libs\lua\ltable.h" />
+    <ClInclude Include="libs\lua\ltm.h" />
+    <ClInclude Include="libs\lua\lua.h" />
+    <ClInclude Include="libs\lua\lua.hpp" />
+    <ClInclude Include="libs\lua\luaconf.h" />
+    <ClInclude Include="libs\lua\lualib.h" />
+    <ClInclude Include="libs\lua\lundump.h" />
+    <ClInclude Include="libs\lua\lvm.h" />
+    <ClInclude Include="libs\lua\lzio.h" />
     <ClInclude Include="libs\MinHook\buffer.h" />
     <ClInclude Include="libs\MinHook\framework.h" />
     <ClInclude Include="libs\MinHook\hde32.h" />
@@ -178,10 +221,37 @@
     <ClInclude Include="libs\MinHook\table32.h" />
     <ClInclude Include="libs\MinHook\table64.h" />
     <ClInclude Include="libs\MinHook\trampoline.h" />
+    <ClInclude Include="libs\sol\config.hpp" />
+    <ClInclude Include="libs\sol\forward.hpp" />
+    <ClInclude Include="libs\sol\sol.hpp" />
+    <ClInclude Include="log_manager.h" />
+    <ClInclude Include="menu\tab_about.h" />
+    <ClInclude Include="menu\tab_logs.h" />
+    <ClInclude Include="menu\tab_misc.h" />
+    <ClInclude Include="menu\tab_scripts.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="script.h" />
+    <ClInclude Include="script_manager.h" />
+    <ClInclude Include="Utils\console.h" />
+    <ClInclude Include="Utils\hash.h" />
+    <ClInclude Include="Utils\hooking.h" />
+    <ClInclude Include="Utils\loadlibrary.h" />
+    <ClInclude Include="Utils\macro.h" />
+    <ClInclude Include="Utils\mem.h" />
+    <ClInclude Include="Utils\misc_utils.h" />
+    <ClInclude Include="Utils\winapi_helper.h" />
+    <ClInclude Include="Utils\winternal.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="api\api_ChaosEngine.cpp" />
+    <ClCompile Include="api\api_controls.cpp" />
+    <ClCompile Include="api\api_game.cpp" />
+    <ClCompile Include="api\api_imgui.cpp" />
+    <ClCompile Include="api\api_mem.cpp" />
+    <ClCompile Include="api\api_win.cpp" />
+    <ClCompile Include="callback_manager.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="helpers\imgui_prompts.cpp" />
     <ClCompile Include="libs\ImGui\imgui.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
@@ -210,6 +280,39 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="libs\lua\lapi.c" />
+    <ClCompile Include="libs\lua\lauxlib.c" />
+    <ClCompile Include="libs\lua\lbaselib.c" />
+    <ClCompile Include="libs\lua\lcode.c" />
+    <ClCompile Include="libs\lua\lcorolib.c" />
+    <ClCompile Include="libs\lua\lctype.c" />
+    <ClCompile Include="libs\lua\ldblib.c" />
+    <ClCompile Include="libs\lua\ldebug.c" />
+    <ClCompile Include="libs\lua\ldo.c" />
+    <ClCompile Include="libs\lua\ldump.c" />
+    <ClCompile Include="libs\lua\lfunc.c" />
+    <ClCompile Include="libs\lua\lgc.c" />
+    <ClCompile Include="libs\lua\linit.c" />
+    <ClCompile Include="libs\lua\liolib.c" />
+    <ClCompile Include="libs\lua\llex.c" />
+    <ClCompile Include="libs\lua\lmathlib.c" />
+    <ClCompile Include="libs\lua\lmem.c" />
+    <ClCompile Include="libs\lua\loadlib.c" />
+    <ClCompile Include="libs\lua\lobject.c" />
+    <ClCompile Include="libs\lua\lopcodes.c" />
+    <ClCompile Include="libs\lua\loslib.c" />
+    <ClCompile Include="libs\lua\lparser.c" />
+    <ClCompile Include="libs\lua\lstate.c" />
+    <ClCompile Include="libs\lua\lstring.c" />
+    <ClCompile Include="libs\lua\lstrlib.c" />
+    <ClCompile Include="libs\lua\ltable.c" />
+    <ClCompile Include="libs\lua\ltablib.c" />
+    <ClCompile Include="libs\lua\ltm.c" />
+    <ClCompile Include="libs\lua\lua.c" />
+    <ClCompile Include="libs\lua\lundump.c" />
+    <ClCompile Include="libs\lua\lutf8lib.c" />
+    <ClCompile Include="libs\lua\lvm.c" />
+    <ClCompile Include="libs\lua\lzio.c" />
     <ClCompile Include="libs\MinHook\buffer.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -246,12 +349,19 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="log_manager.cpp" />
+    <ClCompile Include="menu\tab_about.cpp" />
+    <ClCompile Include="menu\tab_logs.cpp" />
+    <ClCompile Include="menu\tab_misc.cpp" />
+    <ClCompile Include="menu\tab_scripts.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="script.cpp" />
+    <ClCompile Include="script_manager.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="src\Engine.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../pch.h</PrecompiledHeaderFile>
@@ -265,8 +375,17 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pch.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pch.h</PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="Utils\console.cpp" />
+    <ClCompile Include="Utils\hooking.cpp" />
+    <ClCompile Include="Utils\loadlibrary.cpp" />
+    <ClCompile Include="Utils\mem.cpp" />
+    <ClCompile Include="Utils\misc_utils.cpp" />
+    <ClCompile Include="Utils\winapi_helper.cpp" />
+    <ClCompile Include="Utils\winternal.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="libs\lua\lua.vcxitems" />
+    <None Include="libs\lua\lua.vcxitems.user" />
     <None Include="libs\MinHook\minhook.def" />
     <None Include="README.md" />
   </ItemGroup>

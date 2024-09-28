@@ -25,6 +25,24 @@
     <Filter Include="Resource Files\MinHook">
       <UniqueIdentifier>{d55590e2-04e5-427a-a959-6dcc763f2f71}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\sol">
+      <UniqueIdentifier>{6ff40ee7-4873-4c65-a786-ac78f5b61999}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\lua">
+      <UniqueIdentifier>{eafb81da-1912-4d61-ba1a-93bd7871f44d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="api">
+      <UniqueIdentifier>{e6827958-c60d-4bae-8ba7-cf1de1ad17d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{0e947c74-d88e-4505-9867-0176d40c4bc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="helpers">
+      <UniqueIdentifier>{08c46405-e9e3-474b-b05b-cfc215715337}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Menu">
+      <UniqueIdentifier>{d4859005-904d-4513-8f2a-3516de35a955}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -71,6 +89,186 @@
     </ClInclude>
     <ClInclude Include="libs\MinHook\trampoline.h">
       <Filter>Resource Files\MinHook</Filter>
+    </ClInclude>
+    <ClInclude Include="script_manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="callback_manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="log_manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="script.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\sol\sol.hpp">
+      <Filter>Resource Files\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\sol\config.hpp">
+      <Filter>Resource Files\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\sol\forward.hpp">
+      <Filter>Resource Files\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lapi.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lauxlib.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lcode.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lctype.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\ldebug.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\ldo.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lfunc.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lgc.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\ljumptab.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\llex.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\llimits.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lmem.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lobject.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lopcodes.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lopnames.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lparser.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lprefix.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lstate.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lstring.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\ltable.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\ltm.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lua.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lua.hpp">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\luaconf.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lualib.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lundump.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lvm.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\lua\lzio.h">
+      <Filter>Resource Files\lua</Filter>
+    </ClInclude>
+    <ClInclude Include="api\script_apis.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="api\api_ChaosEngine.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="api\api_controls.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="api\api_game.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="api\api_imgui.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="api\api_mem.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="api\api_win.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="api\i_api.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\winapi_helper.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\winternal.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\console.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\hash.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\hooking.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\loadlibrary.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\macro.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\mem.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\misc_utils.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="helpers\imgui_prompts.h">
+      <Filter>helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\tab_about.h">
+      <Filter>Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\tab_logs.h">
+      <Filter>Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\tab_misc.h">
+      <Filter>Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="menu\tab_scripts.h">
+      <Filter>Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="git_info.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="font.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="autoexecdef.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +326,171 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="callback_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="log_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="script.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="script_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lapi.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lauxlib.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lbaselib.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lcode.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lcorolib.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lctype.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\ldblib.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\ldebug.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\ldo.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\ldump.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lfunc.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lgc.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\linit.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\liolib.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\llex.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lmathlib.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lmem.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\loadlib.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lobject.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lopcodes.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\loslib.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lparser.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lstate.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lstring.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lstrlib.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\ltable.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\ltablib.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\ltm.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lua.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lundump.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lutf8lib.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lvm.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\lua\lzio.c">
+      <Filter>Resource Files\lua</Filter>
+    </ClCompile>
+    <ClCompile Include="api\api_ChaosEngine.cpp">
+      <Filter>api</Filter>
+    </ClCompile>
+    <ClCompile Include="api\api_controls.cpp">
+      <Filter>api</Filter>
+    </ClCompile>
+    <ClCompile Include="api\api_game.cpp">
+      <Filter>api</Filter>
+    </ClCompile>
+    <ClCompile Include="api\api_imgui.cpp">
+      <Filter>api</Filter>
+    </ClCompile>
+    <ClCompile Include="api\api_mem.cpp">
+      <Filter>api</Filter>
+    </ClCompile>
+    <ClCompile Include="api\api_win.cpp">
+      <Filter>api</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\winapi_helper.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\winternal.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\console.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\hooking.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\loadlibrary.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\mem.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\misc_utils.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="helpers\imgui_prompts.cpp">
+      <Filter>helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\tab_about.cpp">
+      <Filter>Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\tab_logs.cpp">
+      <Filter>Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\tab_misc.cpp">
+      <Filter>Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\tab_scripts.cpp">
+      <Filter>Menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="libs\MinHook\minhook.def">
@@ -135,6 +498,12 @@
     </None>
     <None Include="README.md">
       <Filter>Source Files</Filter>
+    </None>
+    <None Include="libs\lua\lua.vcxitems">
+      <Filter>Resource Files\lua</Filter>
+    </None>
+    <None Include="libs\lua\lua.vcxitems.user">
+      <Filter>Resource Files\lua</Filter>
     </None>
   </ItemGroup>
 </Project>

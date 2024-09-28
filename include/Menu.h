@@ -1,6 +1,6 @@
 #pragma once
 #include "helper.h"
-namespace DX11Base 
+namespace ChaosEngine 
 {
 	class Menu
 	{

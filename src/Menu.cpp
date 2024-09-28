@@ -1,8 +1,14 @@
 #include <pch.h>
 #include <Engine.h>
 #include <Menu.h>
+#include <callback_manager.h>
+#include <menu/tab_scripts.h>
+#include <menu/tab_misc.h>
+#include <menu/tab_logs.h>
+#include <menu/tab_about.h>
+#include <font.h>
 
-namespace DX11Base
+namespace ChaosEngine
 {
 	namespace Styles 
     {
@@ -19,6 +25,57 @@ namespace DX11Base
 
             /// EXAMPLE COLOR 
             //colors[ImGuiCol_FrameBg] = ImVec4(0, 0, 0, 0);
+        }
+
+        void ChaosStyle()
+        {
+            ImGuiStyle& style = ImGui::GetStyle();
+            ImVec4* colors = ImGui::GetStyle().Colors;
+
+            //	STYLE PROPERTIES
+            style.WindowPadding = ImVec2(15, 15);
+            style.WindowRounding = 5.0f;
+            style.FramePadding = ImVec2(5, 5);
+            style.FrameRounding = 4.0f;
+            style.ItemSpacing = ImVec2(12, 8);
+            style.ItemInnerSpacing = ImVec2(8, 6);
+            style.IndentSpacing = 25.0f;
+            style.ScrollbarSize = 15.0f;
+            style.ScrollbarRounding = 9.0f;
+            style.GrabMinSize = 5.0f;
+            style.GrabRounding = 3.0f;
+
+            //  Base ImGui Styling , Aplying a custyom style is left up to you.
+            ImGui::StyleColorsDark();
+
+            /// EXAMPLE COLOR 
+            //colors[ImGuiCol_FrameBg] = ImVec4(0, 0, 0, 0);
+
+                colors[ImGuiCol_WindowBg] = ImColor(0, 0, 0, 230);
+                colors[ImGuiCol_Border] = ImColor(0, 0, 0, 0);
+                colors[ImGuiCol_Button] = ImColor(31, 30, 31, 255);
+                colors[ImGuiCol_ButtonActive] = ImColor(239, 73, 88, 255);
+                colors[ImGuiCol_ButtonHovered] = ImColor(173, 55, 65, 255);
+                colors[ImGuiCol_FrameBg] = ImColor(31, 30, 31, 255);
+                colors[ImGuiCol_FrameBgActive] = ImColor(44, 43, 44, 255);
+                colors[ImGuiCol_FrameBgHovered] = ImColor(37, 36, 37, 255);
+                colors[ImGuiCol_Text] = ImColor(255, 255, 255, 255);
+                colors[ImGuiCol_ChildBg] = ImColor(33, 34, 45, 200);
+                colors[ImGuiCol_CheckMark] = ImColor(240, 50, 66, 255);
+                colors[ImGuiCol_SliderGrab] = ImColor(240, 74, 88, 255);
+                colors[ImGuiCol_SliderGrabActive] = ImColor(240, 50, 66, 255);
+                colors[ImGuiCol_Header] = ImColor(240, 50, 66, 255);
+                colors[ImGuiCol_HeaderHovered] = ImColor(240, 74, 88, 255);
+                colors[ImGuiCol_HeaderActive] = ImColor(240, 50, 66, 255);
+                colors[ImGuiCol_ResizeGrip] = ImColor(220, 50, 66, 120);
+                colors[ImGuiCol_ResizeGripHovered] = ImColor(250, 50, 66, 140);
+                colors[ImGuiCol_ResizeGripActive] = ImColor(240, 50, 66, 255);
+                colors[ImGuiCol_SeparatorHovered] = ImColor(250, 50, 66, 140);
+                colors[ImGuiCol_SeparatorActive] = ImColor(240, 50, 66, 255);
+                colors[ImGuiCol_TitleBgActive] = ImVec4(0.13f, 0.12f, 0.12f, 1.00f);
+                colors[ImGuiCol_Tab] = ImVec4(0.58f, 0.18f, 0.18f, 0.86f);
+                colors[ImGuiCol_TabHovered] = ImVec4(0.98f, 0.26f, 0.26f, 0.80f);
+                colors[ImGuiCol_TabActive] = ImVec4(0.68f, 0.20f, 0.20f, 1.00f);
         }
 
         //  Hides the Dear ImGui Navigation Interface ( Windowing Mode ) 
@@ -57,11 +114,14 @@ namespace DX11Base
 
 	namespace Tabs 
     {
+        
         void TABMain()
         {
+            ImGui::Separator();
+            ImGui::Spacing();
             ImGui::Text("BASE MENU (PREVIEW)");
-            ImGui::Text("BUILD VERSION: v1.0.1");
-            ImGui::Text("BUILD DATE: 2/8/2024");
+            ImGui::Text("BUILD VERSION: v1.0.0");
+            ImGui::Text("BUILD DATE: 9/28/2024");
 
             ImGui::Spacing();
             ImGui::Separator();
@@ -74,7 +134,7 @@ namespace DX11Base
             ImGui::InputInt("##MEMSCAN_START", (int*)&MemScanStarAddress, 0, 0, ImGuiInputTextFlags_CharsHexadecimal);
             ImGui::SameLine();
             ImGui::InputInt("##MEMSCAN_SIZE", (int*)&MemScanReadSize, 0, 0, ImGuiInputTextFlags_CharsHexadecimal);
-            ImGui::BeginChild("MemoryScanner", ImVec2(ImGui::GetContentRegionAvail().x, 100.f), ImGuiChildFlags_Border);
+            ImGui::BeginChild("MemoryScanner", ImVec2(ImGui::GetContentRegionAvail().x, 100.f), ImGuiCol_Border);
             {
                 int pad{ 0 };
                 for (int i = 0; i < MemScanReadSize; i += BytesPerLine)
@@ -113,6 +173,30 @@ namespace DX11Base
                 g_KillSwitch = TRUE;
             }
         }
+
+
+        void TabTest() {
+            ImGui::Separator();
+            ImGui::Spacing();
+            ImGui::Text("This is Just a test");
+
+        }
+        void TabScripts() {
+            ImGui::Separator();
+            ImGui::Spacing();
+            tab_scripts::render_tab();
+        }
+        void TabMisc() {
+            ImGui::Separator();
+            ImGui::Spacing();
+            tab_misc::render_tab();
+        }
+        void TabLogs() {
+            ImGui::Separator();
+            ImGui::Spacing();
+            tab_logs::render_tab();
+            tab_logs::render_window();
+        }
 	}
 
     //----------------------------------------------------------------------------------------------------
@@ -120,35 +204,75 @@ namespace DX11Base
     //-----------------------------------------------------------------------------------
 	void Menu::Draw()
 	{
+        is_open = true;
         if (g_Engine->bShowMenu)
             MainMenu();
 
-        if (g_Engine->bShowHud && !g_Engine->bShowMenu)
-        {
-            Styles::SetNavigationMenuViewState(false);
-            Menu::HUD();
-        }
+        //if (g_Engine->bShowHud && !g_Engine->bShowMenu)
+        //{
+        //    Styles::SetNavigationMenuViewState(false);
+        //    Menu::HUD();
+        //}
 
-        if (g_Engine->bShowDemoWindow && g_Engine->bShowMenu)
-            ImGui::ShowDemoWindow();
+        //if (g_Engine->bShowDemoWindow && g_Engine->bShowMenu)
+        //    ImGui::ShowDemoWindow();
 
-        if (g_Engine->bShowStyleEditor && g_Engine->bShowMenu)
-            ImGui::ShowStyleEditor();
+        //if (g_Engine->bShowStyleEditor && g_Engine->bShowMenu)
+        //    ImGui::ShowStyleEditor();
 	}
 
 	void Menu::MainMenu()
 	{
         if (!g_Engine->bShowDemoWindow && !g_Engine->bShowStyleEditor)
-            Styles::BaseStyle();
+            Styles::ChaosStyle();
 
-        if (!ImGui::Begin("(DX11) ImGui Internal Base", &g_Engine->bShowMenu, 96))
+        if (!ImGui::Begin("(DX11) ImGui Internal Base", &g_Engine->bShowMenu, ImGuiWindowFlags_NoTitleBar))
         {
             ImGui::End();
             return;
         }
-        
-        Tabs::TABMain();
 
+        ImGuiContext* pImGui = GImGui;
+        ImGuiIO& io = ImGui::GetIO();
+        io.Fonts->AddFontFromMemoryCompressedTTF(Test_compressed_data, Test_compressed_size, 13.f);
+
+        static int menu_selection = 0;
+
+
+        if (ImGui::CustomTopButton("Main Menu", menu_selection == 0 ? true : false, ImVec2(130, 40))) menu_selection = 0; ImGui::SameLine(0, 0);
+        if (ImGui::CustomTopButton("Scripts", menu_selection == 1 ? true : false, ImVec2(130, 40))) menu_selection = 1; ImGui::SameLine(0, 0);
+        if (ImGui::CustomTopButton("Logs", menu_selection == 2 ? true : false, ImVec2(130, 40))) menu_selection = 2; ImGui::SameLine(0, 0);
+        if (ImGui::CustomTopButton("Misc", menu_selection == 3 ? true : false, ImVec2(130, 40))) menu_selection = 3; ImGui::SameLine(0, 0);
+
+        ImGui::NewLine();
+        switch (menu_selection)
+        {
+        case 0:
+
+            Tabs::TABMain();
+
+            break;
+        case 1:
+            Tabs::TabScripts();
+            break;
+        case 2:
+
+            Tabs::TabLogs();
+
+            break;
+        case 3:
+            Tabs::TabMisc();
+            break;
+        default:
+            break;
+        }
+
+        ImGui::Separator();
+        ImGui::Dummy(ImVec2(0.0f, 5.0f));
+        int asd = 0;
+
+        ImGui::Spacing();
+        if (ImGui::CustomSubButton("Made by Chaos", asd == 0 ? true : false, ImVec2(ImGui::GetContentRegionAvail().x - 3, 20))) asd = 0; ImGui::SameLine(0, 0);
         ImGui::End();
 	}
 
@@ -174,6 +298,28 @@ namespace DX11Base
         auto center = ImVec2({ draw_size.x * .5f, draw_size.y * .5f });
         auto top_center = ImVec2({ draw_size.x * .5f, draw_size.y * 0.0f });
         ImDraw->AddText(top_center, ImColor(1.0f, 1.0f, 1.0f, 1.0f), "https://github.com/NightFyre/DX11-ImGui-Internal-Hook");
+
+#ifdef Script_Path
+        {
+            if (!ChaosEngine::script_manager::script_autoexec(Script_Path))
+                return false;
+        }
+#endif
+
+        // Render custom script tabs
+        for (const auto& cbs : ChaosEngine::callback_manager::get_callbacks().menu_imgui_tab.lua_callbacks)
+        {
+            if (!cbs.active)
+                continue;
+
+            if (ImGui::BeginTabItem(cbs.parent->get_config().name.c_str()))
+            {
+                cbs.lua_func();
+                ImGui::EndTabItem();
+            }
+        }
+
+        Tabs::tab_about::render_tab();
 
         ImGui::End();
 	}

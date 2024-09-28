@@ -5,11 +5,12 @@
 
 extern DWORD WINAPI MainThread_Initialize(LPVOID dwModule);
 
-namespace DX11Base
+namespace ChaosEngine
 {
 	using namespace std::chrono_literals;
 	inline HMODULE g_hModule{};
 	inline std::atomic_bool g_Running{};
+	inline bool is_open = false;
 	inline std::atomic_bool g_KillSwitch = FALSE;
 
 	struct Vector2 

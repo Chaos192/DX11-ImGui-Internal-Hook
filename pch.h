@@ -41,5 +41,17 @@
 #include "libs/ImGui/imgui_internal.h"
 #include "libs/ImGui/imgui_Impl_dx11.h"
 #include "libs/ImGui/imgui_Impl_Win32.h"
+//
+//API
+#include "api/api_ChaosEngine.h"
+#include "api/api_controls.h"
+#include "api/api_game.h"
+#include "api/api_imgui.h"
+#include "api/script_apis.h"
+#include "api/api_mem.h"
+#include "api/i_api.h"
+#include "api/api_win.h"
+#include "callback_manager.h" 
+#include <helpers/imgui_prompts.h>
 
 #endif //PCH_H
