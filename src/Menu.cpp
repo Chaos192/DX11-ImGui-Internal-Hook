@@ -10,7 +10,7 @@
 
 namespace ChaosEngine
 {
-	namespace Styles 
+    namespace Styles
     {
         void BaseStyle()
         {
@@ -51,31 +51,31 @@ namespace ChaosEngine
             /// EXAMPLE COLOR 
             //colors[ImGuiCol_FrameBg] = ImVec4(0, 0, 0, 0);
 
-                colors[ImGuiCol_WindowBg] = ImColor(0, 0, 0, 230);
-                colors[ImGuiCol_Border] = ImColor(0, 0, 0, 0);
-                colors[ImGuiCol_Button] = ImColor(31, 30, 31, 255);
-                colors[ImGuiCol_ButtonActive] = ImColor(239, 73, 88, 255);
-                colors[ImGuiCol_ButtonHovered] = ImColor(173, 55, 65, 255);
-                colors[ImGuiCol_FrameBg] = ImColor(31, 30, 31, 255);
-                colors[ImGuiCol_FrameBgActive] = ImColor(44, 43, 44, 255);
-                colors[ImGuiCol_FrameBgHovered] = ImColor(37, 36, 37, 255);
-                colors[ImGuiCol_Text] = ImColor(255, 255, 255, 255);
-                colors[ImGuiCol_ChildBg] = ImColor(33, 34, 45, 200);
-                colors[ImGuiCol_CheckMark] = ImColor(240, 50, 66, 255);
-                colors[ImGuiCol_SliderGrab] = ImColor(240, 74, 88, 255);
-                colors[ImGuiCol_SliderGrabActive] = ImColor(240, 50, 66, 255);
-                colors[ImGuiCol_Header] = ImColor(240, 50, 66, 255);
-                colors[ImGuiCol_HeaderHovered] = ImColor(240, 74, 88, 255);
-                colors[ImGuiCol_HeaderActive] = ImColor(240, 50, 66, 255);
-                colors[ImGuiCol_ResizeGrip] = ImColor(220, 50, 66, 120);
-                colors[ImGuiCol_ResizeGripHovered] = ImColor(250, 50, 66, 140);
-                colors[ImGuiCol_ResizeGripActive] = ImColor(240, 50, 66, 255);
-                colors[ImGuiCol_SeparatorHovered] = ImColor(250, 50, 66, 140);
-                colors[ImGuiCol_SeparatorActive] = ImColor(240, 50, 66, 255);
-                colors[ImGuiCol_TitleBgActive] = ImVec4(0.13f, 0.12f, 0.12f, 1.00f);
-                colors[ImGuiCol_Tab] = ImVec4(0.58f, 0.18f, 0.18f, 0.86f);
-                colors[ImGuiCol_TabHovered] = ImVec4(0.98f, 0.26f, 0.26f, 0.80f);
-                colors[ImGuiCol_TabActive] = ImVec4(0.68f, 0.20f, 0.20f, 1.00f);
+            colors[ImGuiCol_WindowBg] = ImColor(0, 0, 0, 230);
+            colors[ImGuiCol_Border] = ImColor(0, 0, 0, 0);
+            colors[ImGuiCol_Button] = ImColor(31, 30, 31, 255);
+            colors[ImGuiCol_ButtonActive] = ImColor(239, 73, 88, 255);
+            colors[ImGuiCol_ButtonHovered] = ImColor(173, 55, 65, 255);
+            colors[ImGuiCol_FrameBg] = ImColor(31, 30, 31, 255);
+            colors[ImGuiCol_FrameBgActive] = ImColor(44, 43, 44, 255);
+            colors[ImGuiCol_FrameBgHovered] = ImColor(37, 36, 37, 255);
+            colors[ImGuiCol_Text] = ImColor(255, 255, 255, 255);
+            colors[ImGuiCol_ChildBg] = ImColor(33, 34, 45, 200);
+            colors[ImGuiCol_CheckMark] = ImColor(240, 50, 66, 255);
+            colors[ImGuiCol_SliderGrab] = ImColor(240, 74, 88, 255);
+            colors[ImGuiCol_SliderGrabActive] = ImColor(240, 50, 66, 255);
+            colors[ImGuiCol_Header] = ImColor(240, 50, 66, 255);
+            colors[ImGuiCol_HeaderHovered] = ImColor(240, 74, 88, 255);
+            colors[ImGuiCol_HeaderActive] = ImColor(240, 50, 66, 255);
+            colors[ImGuiCol_ResizeGrip] = ImColor(220, 50, 66, 120);
+            colors[ImGuiCol_ResizeGripHovered] = ImColor(250, 50, 66, 140);
+            colors[ImGuiCol_ResizeGripActive] = ImColor(240, 50, 66, 255);
+            colors[ImGuiCol_SeparatorHovered] = ImColor(250, 50, 66, 140);
+            colors[ImGuiCol_SeparatorActive] = ImColor(240, 50, 66, 255);
+            colors[ImGuiCol_TitleBgActive] = ImVec4(0.13f, 0.12f, 0.12f, 1.00f);
+            colors[ImGuiCol_Tab] = ImVec4(0.58f, 0.18f, 0.18f, 0.86f);
+            colors[ImGuiCol_TabHovered] = ImVec4(0.98f, 0.26f, 0.26f, 0.80f);
+            colors[ImGuiCol_TabActive] = ImVec4(0.68f, 0.20f, 0.20f, 1.00f);
         }
 
         //  Hides the Dear ImGui Navigation Interface ( Windowing Mode ) 
@@ -85,36 +85,36 @@ namespace ChaosEngine
             ImVec4* colors = ImGui::GetStyle().Colors;
             switch (bShow)
             {
-                case true:
-                {
-                    //  Show Navigation Panel | Default ImGui Dark Style
-                    //  Perhaps just call BaseStyle() ?
-                    colors[ImGuiCol_Text] = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
-                    colors[ImGuiCol_WindowBg] = ImVec4(0.06f, 0.06f, 0.06f, 0.94f);
-                    colors[ImGuiCol_Border] = ImVec4(0.43f, 0.43f, 0.50f, 0.50f);
-                    colors[ImGuiCol_NavHighlight] = ImVec4(0.26f, 0.59f, 0.98f, 1.00f);
-                    colors[ImGuiCol_NavWindowingHighlight] = ImVec4(1.00f, 1.00f, 1.00f, 0.70f);
-                    colors[ImGuiCol_NavWindowingDimBg] = ImVec4(0.80f, 0.80f, 0.80f, 0.20f);
-                    break;
-                }
-                case false:
-                {
-                    //  Hide Navigation Panel
-                    colors[ImGuiCol_Text] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
-                    colors[ImGuiCol_WindowBg] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
-                    colors[ImGuiCol_Border] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
-                    colors[ImGuiCol_NavHighlight] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
-                    colors[ImGuiCol_NavWindowingHighlight] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
-                    colors[ImGuiCol_NavWindowingDimBg] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
-                    break;
-                }
+            case true:
+            {
+                //  Show Navigation Panel | Default ImGui Dark Style
+                //  Perhaps just call BaseStyle() ?
+                colors[ImGuiCol_Text] = ImVec4(1.00f, 1.00f, 1.00f, 1.00f);
+                colors[ImGuiCol_WindowBg] = ImVec4(0.06f, 0.06f, 0.06f, 0.94f);
+                colors[ImGuiCol_Border] = ImVec4(0.43f, 0.43f, 0.50f, 0.50f);
+                colors[ImGuiCol_NavHighlight] = ImVec4(0.26f, 0.59f, 0.98f, 1.00f);
+                colors[ImGuiCol_NavWindowingHighlight] = ImVec4(1.00f, 1.00f, 1.00f, 0.70f);
+                colors[ImGuiCol_NavWindowingDimBg] = ImVec4(0.80f, 0.80f, 0.80f, 0.20f);
+                break;
+            }
+            case false:
+            {
+                //  Hide Navigation Panel
+                colors[ImGuiCol_Text] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                colors[ImGuiCol_WindowBg] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                colors[ImGuiCol_Border] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                colors[ImGuiCol_NavHighlight] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                colors[ImGuiCol_NavWindowingHighlight] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                colors[ImGuiCol_NavWindowingDimBg] = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
+                break;
+            }
             }
         }
-	}
+    }
 
-	namespace Tabs 
+    namespace Tabs
     {
-        
+
         void TABMain()
         {
             ImGui::Separator();
@@ -185,7 +185,7 @@ namespace ChaosEngine
             ImGui::Separator();
             ImGui::Spacing();
             tab_scripts::render_tab();
-            
+
         }
         void TabMisc() {
             ImGui::Separator();
@@ -198,13 +198,13 @@ namespace ChaosEngine
             tab_logs::render_tab();
             tab_logs::render_window();
         }
-	}
+    }
 
     //----------------------------------------------------------------------------------------------------
     //										MENU
     //-----------------------------------------------------------------------------------
-	void Menu::Draw()
-	{
+    void Menu::Draw()
+    {
         is_open = true;
         if (g_Engine->bShowMenu)
             MainMenu();
@@ -220,10 +220,10 @@ namespace ChaosEngine
 
         //if (g_Engine->bShowStyleEditor && g_Engine->bShowMenu)
         //    ImGui::ShowStyleEditor();
-	}
+    }
 
-	void Menu::MainMenu()
-	{
+    void Menu::MainMenu()
+    {
         if (!g_Engine->bShowDemoWindow && !g_Engine->bShowStyleEditor)
             Styles::ChaosStyle();
 
@@ -244,9 +244,6 @@ namespace ChaosEngine
         if (ImGui::CustomTopButton("Scripts", menu_selection == 1 ? true : false, ImVec2(130, 40))) menu_selection = 1; ImGui::SameLine(0, 0);
         if (ImGui::CustomTopButton("Logs", menu_selection == 2 ? true : false, ImVec2(130, 40))) menu_selection = 2; ImGui::SameLine(0, 0);
         if (ImGui::CustomTopButton("Misc", menu_selection == 3 ? true : false, ImVec2(130, 40))) menu_selection = 3; ImGui::SameLine(0, 0);
-        if (Menu::isLoaded) {
-            if (ImGui::CustomTopButton("LoadedScripts", menu_selection == 4 ? true : false, ImVec2(130, 40))) menu_selection = 4; ImGui::SameLine(0, 0);
-        }
 
         ImGui::NewLine();
         switch (menu_selection)
@@ -267,27 +264,24 @@ namespace ChaosEngine
         case 3:
             Tabs::TabMisc();
             break;
-            if (Menu::isLoaded) {
-        case 4:
+
+        default:
+            break;
+        }
+        if (Menu::isLoaded) {
             // Render custom script tabs
             for (const auto& cbs : ChaosEngine::callback_manager::get_callbacks().menu_imgui_tab.lua_callbacks)
             {
                 if (!cbs.active)
                     continue;
 
-                if (ImGui::BeginChild(cbs.parent->get_config().name.c_str()))
+                if (ImGui::Begin(cbs.parent->get_config().name.c_str()))
                 {
                     cbs.lua_func();
-                    ImGui::EndChild();
+                    ImGui::End();
                 }
             }
-            break;
-            }
-        
-        default:
-            break;
         }
-        
 
         ImGui::Separator();
         ImGui::Dummy(ImVec2(0.0f, 5.0f));
@@ -296,10 +290,10 @@ namespace ChaosEngine
         ImGui::Spacing();
         if (ImGui::CustomSubButton("Made by Chaos", asd == 0 ? true : false, ImVec2(ImGui::GetContentRegionAvail().x - 3, 20))) asd = 0; ImGui::SameLine(0, 0);
         ImGui::End();
-	}
+    }
 
-	void Menu::HUD()
-	{
+    void Menu::HUD()
+    {
         ImVec2 draw_size = g_D3D11Window->pViewport->WorkSize;
         ImVec2 draw_pos = g_D3D11Window->pViewport->WorkSize;
         ImGui::SetNextWindowPos(draw_pos);
@@ -322,12 +316,12 @@ namespace ChaosEngine
         ImDraw->AddText(top_center, ImColor(1.0f, 1.0f, 1.0f, 1.0f), "https://github.com/NightFyre/DX11-ImGui-Internal-Hook");
 
         ImGui::End();
-	}
+    }
 
-	void Menu::Loops()
-	{
+    void Menu::Loops()
+    {
 
-	}
+    }
 
     //----------------------------------------------------------------------------------------------------
     //										GUI
