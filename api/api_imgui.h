@@ -36,10 +36,7 @@ namespace ChaosEngine
 		bool _api_check_box(const char *label);
 		bool _api_custom_check_box(const char* label);
 		bool _api_CustomSubButton(const char* label);
-		bool _api_CustomTopButton(const char* label);
-		void _api_newline();
-		void _api_seperator();
-		void _api_spacing();
+		bool _api_CustomTopButton(const char* label);;
 		const char *_api_input_text(const char *label);
 		float _api_slider_float(const char *label, float min, float max);
 	};

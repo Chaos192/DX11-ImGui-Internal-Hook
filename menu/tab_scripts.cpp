@@ -6,6 +6,7 @@
 #include <utils/misc_utils.h>
 #include <thread>
 #include <mutex>
+#include "Menu.h"
 
 // TODO: shift click / ctrl click for multi select
 
@@ -117,6 +118,7 @@ void ChaosEngine::Tabs::tab_scripts::render_tab()
             {
                 if (script._tab_script_selected && script.get_current_state() == ChaosEngine::script::state::UNLOADED)
                     helper_nthread_set_script_state(script, script_state::LOAD);
+                Menu::isLoaded = true;
             }
         }
 
@@ -127,6 +129,7 @@ void ChaosEngine::Tabs::tab_scripts::render_tab()
             {
                 if (script._tab_script_selected && script.get_current_state() == ChaosEngine::script::state::LOADED)
                     helper_nthread_set_script_state(script, script_state::UNLOAD);
+                Menu::isLoaded = false;
             }
         }
 

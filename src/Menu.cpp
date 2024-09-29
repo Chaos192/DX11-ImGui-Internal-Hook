@@ -185,6 +185,7 @@ namespace ChaosEngine
             ImGui::Separator();
             ImGui::Spacing();
             tab_scripts::render_tab();
+            
         }
         void TabMisc() {
             ImGui::Separator();
@@ -243,6 +244,9 @@ namespace ChaosEngine
         if (ImGui::CustomTopButton("Scripts", menu_selection == 1 ? true : false, ImVec2(130, 40))) menu_selection = 1; ImGui::SameLine(0, 0);
         if (ImGui::CustomTopButton("Logs", menu_selection == 2 ? true : false, ImVec2(130, 40))) menu_selection = 2; ImGui::SameLine(0, 0);
         if (ImGui::CustomTopButton("Misc", menu_selection == 3 ? true : false, ImVec2(130, 40))) menu_selection = 3; ImGui::SameLine(0, 0);
+        if (Menu::isLoaded) {
+            if (ImGui::CustomTopButton("LoadedScripts", menu_selection == 4 ? true : false, ImVec2(130, 40))) menu_selection = 4; ImGui::SameLine(0, 0);
+        }
 
         ImGui::NewLine();
         switch (menu_selection)
@@ -263,9 +267,27 @@ namespace ChaosEngine
         case 3:
             Tabs::TabMisc();
             break;
+            if (Menu::isLoaded) {
+        case 4:
+            // Render custom script tabs
+            for (const auto& cbs : ChaosEngine::callback_manager::get_callbacks().menu_imgui_tab.lua_callbacks)
+            {
+                if (!cbs.active)
+                    continue;
+
+                if (ImGui::BeginChild(cbs.parent->get_config().name.c_str()))
+                {
+                    cbs.lua_func();
+                    ImGui::EndChild();
+                }
+            }
+            break;
+            }
+        
         default:
             break;
         }
+        
 
         ImGui::Separator();
         ImGui::Dummy(ImVec2(0.0f, 5.0f));
@@ -298,28 +320,6 @@ namespace ChaosEngine
         auto center = ImVec2({ draw_size.x * .5f, draw_size.y * .5f });
         auto top_center = ImVec2({ draw_size.x * .5f, draw_size.y * 0.0f });
         ImDraw->AddText(top_center, ImColor(1.0f, 1.0f, 1.0f, 1.0f), "https://github.com/NightFyre/DX11-ImGui-Internal-Hook");
-
-#ifdef Script_Path
-        {
-            if (!ChaosEngine::script_manager::script_autoexec(Script_Path))
-                return false;
-        }
-#endif
-
-        // Render custom script tabs
-        for (const auto& cbs : ChaosEngine::callback_manager::get_callbacks().menu_imgui_tab.lua_callbacks)
-        {
-            if (!cbs.active)
-                continue;
-
-            if (ImGui::BeginTabItem(cbs.parent->get_config().name.c_str()))
-            {
-                cbs.lua_func();
-                ImGui::EndTabItem();
-            }
-        }
-
-        Tabs::tab_about::render_tab();
 
         ImGui::End();
 	}

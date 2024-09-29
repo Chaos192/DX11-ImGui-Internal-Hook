@@ -10,6 +10,8 @@ namespace ChaosEngine
 		static void HUD();
 		static void Loops();
 
+		static inline bool isLoaded = false;
+
 		//	constructor
 		Menu()  noexcept = default;
 		~Menu() noexcept = default;
@@ -28,5 +30,6 @@ namespace ChaosEngine
 		static void DrawTextf(ImVec2 pos, ImColor color, const char* pText, float fontSize, ...);
 		static void DrawTextCentered(ImVec2 pos, ImColor color, const char* pText, float fontsize);
 		static void DrawTextCenteredf(ImVec2 pos, ImColor color, const char* pText, float fontsize, ...);
+		
 	};
 }

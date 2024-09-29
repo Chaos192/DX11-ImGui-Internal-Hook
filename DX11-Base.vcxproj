@@ -239,6 +239,7 @@
     <ClInclude Include="Utils\macro.h" />
     <ClInclude Include="Utils\mem.h" />
     <ClInclude Include="Utils\misc_utils.h" />
+    <ClInclude Include="Utils\Utils.h" />
     <ClInclude Include="Utils\winapi_helper.h" />
     <ClInclude Include="Utils\winternal.h" />
   </ItemGroup>
@@ -380,6 +381,7 @@
     <ClCompile Include="Utils\loadlibrary.cpp" />
     <ClCompile Include="Utils\mem.cpp" />
     <ClCompile Include="Utils\misc_utils.cpp" />
+    <ClCompile Include="Utils\Utils.cpp" />
     <ClCompile Include="Utils\winapi_helper.cpp" />
     <ClCompile Include="Utils\winternal.cpp" />
   </ItemGroup>

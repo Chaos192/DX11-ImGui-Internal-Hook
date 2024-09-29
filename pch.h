@@ -41,6 +41,8 @@
 #include "libs/ImGui/imgui_internal.h"
 #include "libs/ImGui/imgui_Impl_dx11.h"
 #include "libs/ImGui/imgui_Impl_Win32.h"
+
+#include <Utils/Utils.h>
 //
 //API
 #include "api/api_ChaosEngine.h"
@@ -53,5 +55,12 @@
 #include "api/api_win.h"
 #include "callback_manager.h" 
 #include <helpers/imgui_prompts.h>
+
+struct Assembly
+{
+    LPVOID CODECAVE = AllocatePage();
+    uint64_t JMP_BACK;
+    uint64_t PTR;
+};
 
 #endif //PCH_H

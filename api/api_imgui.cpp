@@ -12,20 +12,17 @@ bool ChaosEngine::api_imgui::setup_api(sol::state &slua)
 	namespace_imgui.set_function("begin", &ChaosEngine::api_imgui::_api_begin, this);
 	namespace_imgui.set_function("iend", &ChaosEngine::api_imgui::_api_iend, this);
 	namespace_imgui.set_function("check_box", &ChaosEngine::api_imgui::_api_check_box, this);
-	namespace_imgui.set_function("custom check_box", &ChaosEngine::api_imgui::_api_custom_check_box, this);
-	namespace_imgui.set_function("custom Tab button", &ChaosEngine::api_imgui::_api_CustomSubButton, this);
-	namespace_imgui.set_function("custom Bottom button", &ChaosEngine::api_imgui::_api_CustomTopButton, this);
+	namespace_imgui.set_function("custom_check_box", &ChaosEngine::api_imgui::_api_custom_check_box, this);
+	namespace_imgui.set_function("custom_Tab_button", &ChaosEngine::api_imgui::_api_CustomSubButton, this);
+	namespace_imgui.set_function("custom_Bottom_button", &ChaosEngine::api_imgui::_api_CustomTopButton, this);
 	namespace_imgui.set_function("input_text", &ChaosEngine::api_imgui::_api_input_text, this);
 	namespace_imgui.set_function("slider_float", &ChaosEngine::api_imgui::_api_slider_float, this);
-
-	namespace_imgui.set_function("New Line", &ChaosEngine::api_imgui::_api_newline, this);
-	namespace_imgui.set_function("Seperator", &ChaosEngine::api_imgui::_api_seperator, this);
-	namespace_imgui.set_function("Spacing", &ChaosEngine::api_imgui::_api_spacing, this);
-
 	namespace_imgui.set_function("text", [](const char *text) { ImGui::Text(text); });
 	namespace_imgui.set_function("same_line", []() { ImGui::SameLine(); });
 	namespace_imgui.set_function("button", [](const char *text) -> bool { return ImGui::Button(text); });
 	namespace_imgui.set_function("separator", &ImGui::Separator);
+	namespace_imgui.set_function("new_Line", &ImGui::NewLine);
+	namespace_imgui.set_function("spacing", &ImGui::Spacing);
 	namespace_imgui.set_function("push_id", static_cast<void(*)(int)>(&ImGui::PushID));
 	namespace_imgui.set_function("pop_id", &ImGui::PopID);
 
@@ -89,22 +86,7 @@ bool ChaosEngine::api_imgui::_api_CustomSubButton(const char* label)
 bool ChaosEngine::api_imgui::_api_CustomTopButton(const char* label)
 {
 	auto& container = *reinterpret_cast<bool*>(&this->imgui_data_ref[label]);
-	return ImGui::CustomTopButton(label, &container);
-}
-
-void ChaosEngine::api_imgui::_api_newline()
-{
-	return ImGui::NewLine();
-}
-
-void ChaosEngine::api_imgui::_api_seperator()
-{
-	return ImGui::Separator();
-}
-
-void ChaosEngine::api_imgui::_api_spacing()
-{
-	return ImGui::Spacing();
+	return ImGui::CustomTopButton(label);
 }
 
 const char *ChaosEngine::api_imgui::_api_input_text(const char *label)

@@ -270,6 +270,9 @@
     <ClInclude Include="autoexecdef.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Utils\Utils.h">
+      <Filter>utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -490,6 +493,9 @@
     </ClCompile>
     <ClCompile Include="menu\tab_scripts.cpp">
       <Filter>Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Utils.cpp">
+      <Filter>utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
